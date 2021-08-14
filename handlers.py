@@ -28,7 +28,7 @@ def forward_to_chat(update, context):
 
 
 def forward_to_user(update, context):
-    user_id = update.message.from.user_id
+    user_id = None
     if update.message.reply_to_message.forward_from:
         user_id = update.message.reply_to_message.forward_from.id
     elif REPLY_TO_THIS_MESSAGE in update.message.reply_to_message.text:
