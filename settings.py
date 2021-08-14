@@ -9,7 +9,7 @@ if TELEGRAM_TOKEN is None:
     raise Exception("Please setup the .env variable TELEGRAM_TOKEN.")
 
 PORT = int(os.environ.get('PORT', '8443'))
-HEROKU_APP_NAME = os.getenv("HEROKU_APP_NAME" , "optika-kazan")
+HEROKU_APP_NAME = os.getenv("HEROKU_APP_NAME")
 
 TELEGRAM_SUPPORT_CHAT_ID = os.getenv("TELEGRAM_SUPPORT_CHAT_ID")
 if TELEGRAM_SUPPORT_CHAT_ID is None or not str(TELEGRAM_SUPPORT_CHAT_ID).lstrip("-").isdigit():
@@ -17,4 +17,6 @@ if TELEGRAM_SUPPORT_CHAT_ID is None or not str(TELEGRAM_SUPPORT_CHAT_ID).lstrip(
 TELEGRAM_SUPPORT_CHAT_ID = int(TELEGRAM_SUPPORT_CHAT_ID)
 
 
-WELCOME_MESSAGE = os.getenv("WELCOME_MESSAGE", "Здравствуйте! Пожалуйста, напишите ваш вопрос и вам скоро ответят!")
+WELCOME_MESSAGE = os.getenv("WELCOME_MESSAGE", "Здравствуйте! Пожалуйста, напишите ваш вопрос и скоро вам ответят!")
+REPLY_TO_THIS_MESSAGE = os.getenv("REPLY_TO_THIS_MESSAGE", "REPLY_TO_THIS")
+WRONG_REPLY = os.getenv("WRONG_REPLY", "WRONG_REPLY")
