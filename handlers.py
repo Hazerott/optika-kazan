@@ -1,4 +1,6 @@
 import os
+import telebot
+from flask import Flask, request
 from telegram.ext import CommandHandler, MessageHandler, Filters
 
 from settings import WELCOME_MESSAGE, TELEGRAM_SUPPORT_CHAT_ID, REPLY_TO_THIS_MESSAGE, WRONG_REPLY
@@ -16,6 +18,12 @@ def start(update, context):
         """,
     )
 
+@bot.message_hundler(func=lambda message: True, content_types=[`text`])
+def echo(message):
+    bot.reply_to(message, message.text)
+    
+    
+    
 
 def forward_to_chat(update, context):
     forwarded = update.message.forward(chat_id=TELEGRAM_SUPPORT_CHAT_ID)
